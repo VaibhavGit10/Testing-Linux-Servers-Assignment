@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Variables
+DATE=$(date +%F)
+BACKUP_DIR="/backups"
+APACHE_CONFIG="/etc/apache2"
+APACHE_DOCROOT="/var/www/html"
+BACKUP_FILE="$BACKUP_DIR/apache_backup_$DATE.tar.gz"
+LOG_FILE="$BACKUP_DIR/apache_backup_$DATE.log"
+
+# Ensure backup directory exists
+mkdir -p $BACKUP_DIR
+
+# Start log
+echo "📌 Apache Backup Log - $DATE" > "$LOG_FILE"
+echo "------------------------------------" >> "$LOG_FILE"
+echo "🔹 Backup Directory: $BACKUP_DIR" >> "$LOG_FILE"
+echo "🔹 Backup File: $BACKUP_FILE" >> "$LOG_FILE"
+echo "🔹 Apache Config: $APACHE_CONFIG" >> "$LOG_FILE"
+echo "🔹 Apache Document Root: $APACHE_DOCROOT" >> "$LOG_FILE"
+echo "------------------------------------" >> "$LOG_FILE"
+
+# Backup Apache configuration and document root
+echo "⏳ Creating backup..." >> "$LOG_FILE"
+if tar -czf "$BACKUP_FILE" $APACHE_CONFIG $APACHE_DOCROOT 2>> "$LOG_FILE"; then
+    echo "✅ Backup successfully created: $BACKUP_FILE" >> "$LOG_FILE"
+else
+    echo "❌ Backup failed!" >> "$LOG_FILE"
+    exit 1
+fi
+
+# Verify and log backup contents
+echo "🔍 Verifying backup integrity..." >> "$LOG_FILE"
+if tar -tzf "$BACKUP_FILE" >> "$LOG_FILE" 2>&1; then
+    echo "✅ Backup verification successful." >> "$LOG_FILE"
+else
+    echo "❌ Backup verification failed!" >> "$LOG_FILE"
+    exit 1
+fi
+
+# Set appropriate permissions for the backup file
+chmod 660 "$BACKUP_FILE"
+chown sarah:sarah "$BACKUP_FILE"
+echo "🔑 Permissions set for Sarah." >> "$LOG_FILE"
+
+echo "🚀 Backup process completed." >> "$LOG_FILE"
+echo "------------------------------------" >> "$LOG_FILE"
+
+exit 0

@@ -1,0 +1,21 @@
+📌 Apache Backup Log - 2025-03-23
+------------------------------------
+🔹 Backup Directory: /backups
+🔹 Backup File: /backups/apache_backup_2025-03-23.tar.gz
+🔹 Apache Config: /etc/apache2
+🔹 Apache Document Root: /var/www/html
+------------------------------------
+⏳ Creating backup...
+tar: Removing leading `/' from member names
+tar: Removing leading `/' from hard link targets
+✅ Backup successfully created: /backups/apache_backup_2025-03-23.tar.gz
+🔍 Verifying backup integrity...
+etc/apache2/
+etc/apache2/conf-available/
+etc/apache2/conf-available/javascript-common.conf
+var/www/html/
+var/www/html/index.nginx-debian.html
+✅ Backup verification successful.
+🔑 Permissions set for Sarah.
+🚀 Backup process completed.
+------------------------------------

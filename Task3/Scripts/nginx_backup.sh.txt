@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Variables
+DATE=$(date +%F)
+BACKUP_DIR="/backups"
+NGINX_CONFIG="/etc/nginx"
+NGINX_DOCROOT="/usr/share/nginx/html"
+BACKUP_FILE="$BACKUP_DIR/nginx_backup_$DATE.tar.gz"
+LOG_FILE="$BACKUP_DIR/nginx_backup_$DATE.log"
+OWNER="mike"
+
+# Ensure backup directory exists
+sudo mkdir -p $BACKUP_DIR
+sudo chown $OWNER:$OWNER $BACKUP_DIR
+
+# Start logging
+echo "📌 Nginx Backup Log - $DATE" | tee "$LOG_FILE"
+echo "------------------------------------" | tee -a "$LOG_FILE"
+echo "🔹 Backup Directory: $BACKUP_DIR" | tee -a "$LOG_FILE"
+echo "🔹 Backup File: $BACKUP_FILE" | tee -a "$LOG_FILE"
+echo "🔹 Nginx Config: $NGINX_CONFIG" | tee -a "$LOG_FILE"
+echo "🔹 Nginx Document Root: $NGINX_DOCROOT" | tee -a "$LOG_FILE"
+echo "------------------------------------" | tee -a "$LOG_FILE"
+
+# Backup process
+echo "⏳ Creating backup..." | tee -a "$LOG_FILE"
+if tar -czf "$BACKUP_FILE" $NGINX_CONFIG $NGINX_DOCROOT 2>> "$LOG_FILE"; then
+    echo "✅ Backup successfully created: $BACKUP_FILE" | tee -a "$LOG_FILE"
+else
+    echo "❌ Backup failed!" | tee -a "$LOG_FILE"
+    exit 1
+fi
+
+# Verify backup integrity
+echo "🔍 Verifying backup integrity..." | tee -a "$LOG_FILE"
+if tar -tzf "$BACKUP_FILE" > /dev/null 2>> "$LOG_FILE"; then
+    echo "✅ Backup verification successful." | tee -a "$LOG_FILE"
+else
+    echo "❌ Backup verification failed!" | tee -a "$LOG_FILE"
+    exit 1
+fi
+
+# Set correct permissions
+sudo chown $OWNER:$OWNER "$BACKUP_FILE" "$LOG_FILE"
+sudo chmod 770 "$BACKUP_FILE" "$LOG_FILE"
+echo "🔑 Permissions set for $OWNER." | tee -a "$LOG_FILE"
+
+echo "🚀 Backup process completed." | tee -a "$LOG_FILE"
+echo "------------------------------------" | tee -a "$LOG_FILE"
