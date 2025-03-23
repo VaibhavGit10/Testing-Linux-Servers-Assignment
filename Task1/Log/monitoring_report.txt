@@ -1,0 +1,43 @@
+Disk Monitor Log Summary:
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+sda              0.17      8.70     0.06  25.36    0.98    50.93    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.02
+sdb              0.01      0.26     0.00   0.00    0.15    19.17    0.00      0.00     0.00   0.00    2.50     2.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    3.00    0.00   0.00
+sdc              2.82    127.98     0.64  18.44    0.90    45.42    1.63    111.56     1.16  41.59    9.34    68.58    0.09   1430.86     0.03  23.87    0.25 16162.35    0.28    3.11    0.02   0.69
+
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+sda              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sdb              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sdc              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+sda              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sdb              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sdc              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+
+
+=====================================
+
+System Monitor Log Summary:
+Tasks:  50 total,   2 running,  48 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  6.0 us,  8.3 sy,  0.0 ni, 85.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :   3852.0 total,   3026.0 free,    724.1 used,    381.1 buff/cache     
+MiB Swap:   1024.0 total,   1024.0 free,      0.0 used.   3127.9 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   6387 root      20   0   18228  14880   4528 R 100.0   0.4   0:00.14 lshw
+      1 root      20   0   22252  13444   9548 S   0.0   0.3   0:04.97 systemd
+      2 root      20   0    2616   1512   1384 S   0.0   0.0   0:00.10 init-sy+
+      8 root      20   0    2616    132    132 S   0.0   0.0   0:00.00 init
+     56 root      19  -1   34040  13256  12112 S   0.0   0.3   0:01.56 systemd+
+     96 root      20   0   24440   6660   4928 S   0.0   0.2   0:02.39 systemd+
+    112 root      20   0  227700   2252     44 S   0.0   0.1   0:00.32 snapfuse
+    113 root      20   0  302596   8996    520 S   0.0   0.2   0:00.47 snapfuse
+    114 root      20   0  227832   2824    536 S   0.0   0.1   0:01.98 snapfuse
+    119 root      20   0  302596   3516    300 S   0.0   0.1   0:10.47 snapfuse
+    205 systemd+  20   0   21452  11956   9764 S   0.0   0.3   0:00.23 systemd+
+    211 systemd+  20   0   91020   6532   5680 S   0.0   0.2   0:00.44 systemd+
+    254 root      20   0    4236   2608   2356 S   0.0   0.1   0:00.11 cron
+=====================================
