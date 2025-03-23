@@ -129,7 +129,7 @@ Contributions are welcome! Please submit a pull request or raise an issue for an
 
 ## 📧 Contact
 
-For any queries or feedback, reach out to **[Your Name]** at **[Your Email]**.
+For any queries or feedback, reach out to *Vaibhav Pawar** at **vaibhav10799@gmail.com**.
 
 ---
 
